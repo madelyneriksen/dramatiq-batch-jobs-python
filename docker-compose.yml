@@ -1,0 +1,12 @@
+version: "3.6"
+services:
+  mapreduce:
+    image: simple-batch-container
+    depends_on:
+      - worker
+  worker:
+    image: simple-batch-container
+    command:
+      dramatiq app
+  redis:
+    image: redis:alpine
